@@ -4,15 +4,9 @@ class Cookie implements \Moltin\Cart\IdentifierInterface
 {
     public function get()
     {
-        if (isset($_COOKIE['cart_identifier'])) {
+        if (isset($_COOKIE['cart_identifier'])) return $_COOKIE['cart_identifier'];
 
-            return $_COOKIE['cart_identifier'];
-
-        } else {
-
-            return $this->regenerate();
-
-        }
+        return $this->regenerate();
     }
 
     public function regenerate()
