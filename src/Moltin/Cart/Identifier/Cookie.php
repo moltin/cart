@@ -17,4 +17,9 @@ class Cookie implements \Moltin\Cart\IdentifierInterface
 
         return $identifier;
     }
+
+    public function forget()
+    {
+        return setcookie('cart_identifier', null, time()-3600);
+    }
 }
