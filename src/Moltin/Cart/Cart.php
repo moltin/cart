@@ -17,4 +17,44 @@ class Cart
         // Let our storage class know which cart we're talking about
         $this->store->setIdentifier($this->id);
     }
+
+    public function insert()
+    {
+
+    }
+
+    public function update()
+    {
+        
+    }
+
+    public function remove()
+    {
+        
+    }
+
+    public function destroy()
+    {
+        
+    }
+
+    public function has()
+    {
+        
+    }
+
+    public function total()
+    {
+        
+    }
+
+    public function setTax()
+    {
+        
+    }
+
+    public function setCurrency()
+    {
+        
+    }
 }
