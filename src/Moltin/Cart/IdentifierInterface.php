@@ -2,7 +2,7 @@
 
 interface IdentifierInterface
 {
-    public function getIdentifier($id, $data);
+    public function get();
 
     public function regenerate();
 }
