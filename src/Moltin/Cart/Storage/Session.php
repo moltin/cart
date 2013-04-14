@@ -18,6 +18,11 @@ class Session implements \Moltin\Cart\StorageInterface
     {
 
     }
+
+    public function destroy()
+    {
+        unset($_SESSION['cart']);
+    }
     
     public function setIdentifier($identifier)
     {
