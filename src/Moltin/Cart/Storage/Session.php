@@ -13,6 +13,11 @@ class Session implements \Moltin\Cart\StorageInterface
     {
         
     }
+
+    public function data()
+    {
+        
+    }
     
     public function remove($id)
     {
