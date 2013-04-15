@@ -73,6 +73,14 @@ class Cart
         
     }
 
+    protected function createItemIdentifier(array $item)
+    {
+        unset($item['quantity']);
+        ksort($item);
+
+        return md5(serialize($item));
+    }
+
     protected function checkArgs(array $item)
     {
         foreach ($this->requiredParams as $param) {
