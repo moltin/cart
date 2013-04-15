@@ -28,14 +28,16 @@ class Cart
 
     public function contents()
     {
-        
+
     }
 
     public function insert(array $item)
     {
         $this->checkArgs($item);
 
+        $item = new Item($item);
 
+        $this->store->insertUpdate($id, $item);
     }
 
     public function update()
