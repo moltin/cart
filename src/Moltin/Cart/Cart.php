@@ -38,6 +38,8 @@ class Cart
 
         $item = new Item($item);
 
+        $id = $this->createItemIdentifier($item);
+
         $this->store->insertUpdate($id, $item);
     }
 
