@@ -3,6 +3,7 @@
 class Session implements \Moltin\Cart\StorageInterface
 {
     protected $identifier;
+    protected $cart = array();
 
     public function __construct()
     {
@@ -11,12 +12,12 @@ class Session implements \Moltin\Cart\StorageInterface
 
     public function insertUpdate($id, $data)
     {
-        
+        $this->cart[$id] = $data;
     }
 
     public function data()
     {
-        
+
     }
     
     public function remove($id)
@@ -31,7 +32,7 @@ class Session implements \Moltin\Cart\StorageInterface
 
     public function setIdentifier($id)
     {
-        $this->identifier = $id;
+        $this->id = $id;
 
         if (isset($_SESSION['cart'][$this->id])) {
             $this->cart = unserialize($_SESSION['cart'][$this->id]);
