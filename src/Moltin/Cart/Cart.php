@@ -1,10 +1,18 @@
 <?php namespace Moltin\Cart;
 
+use InvalidArgumentException;
+
 class Cart
 {
     protected $id;
     protected $store;
     protected $identifier;
+
+    protected $requiredParams = array(
+        'id',
+        'name',
+        'quantity'
+    );
 
     public function __construct(StorageInterface $store, IdentifierInterface $identifier)
     {
@@ -18,9 +26,9 @@ class Cart
         $this->store->setIdentifier($this->id);
     }
 
-    public function insert()
+    public function insert(array $item)
     {
-
+        $this->checkArgs($item);
     }
 
     public function update()
@@ -56,5 +64,16 @@ class Cart
     public function setCurrency()
     {
         
+    }
+
+    protected function checkArgs(array $item)
+    {
+        foreach ($this->requiredParams as $param) {
+
+            if ( ! array_key_exists($param, $item)) {
+                throw new InvalidArgumentException("The '{$param}' field is required");
+            }
+
+        }
     }
 }
