@@ -11,7 +11,8 @@ class Cart
     protected $requiredParams = array(
         'id',
         'name',
-        'quantity'
+        'quantity',
+        'price'
     );
 
     public function __construct(StorageInterface $store, IdentifierInterface $identifier)
