@@ -83,7 +83,7 @@ class Cart
 
         ksort($item['options']);
 
-        return md5($item['id'].serialize($item));
+        return md5($item['id'].serialize($item['options']));
     }
 
     protected function checkArgs(array $item)
