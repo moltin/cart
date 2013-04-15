@@ -26,9 +26,16 @@ class Cart
         $this->store->setIdentifier($this->id);
     }
 
+    public function contents()
+    {
+        
+    }
+
     public function insert(array $item)
     {
         $this->checkArgs($item);
+
+
     }
 
     public function update()
