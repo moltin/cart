@@ -53,7 +53,7 @@ class Cart
 
     public function destroy()
     {
-        
+        $this->store->destroy();
     }
 
     public function has()
