@@ -10,4 +10,9 @@ class Item
     {
         foreach ($item as $key => $value) $this->$key = $value;
     }
+
+    public function __get($param)
+    {
+        return $this->$param;
+    }
 }
