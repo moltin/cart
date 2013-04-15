@@ -12,5 +12,5 @@ interface StorageInterface
     
     public function setIdentifier($identifier);
     
-    public function getIdentifier($identifier);
+    public function getIdentifier();
 }
