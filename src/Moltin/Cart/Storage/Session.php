@@ -28,14 +28,4 @@ class Session implements \Moltin\Cart\StorageInterface
     {
         unset($_SESSION['cart']);
     }
-    
-    public function setIdentifier($identifier)
-    {
-        $this->identifier = $identifier;
-    }
-    
-    public function getIdentifier($identifier)
-    {
-        return $this->identifier;
-    }
 }

@@ -9,8 +9,4 @@ interface StorageInterface
     public function remove($id);
 
     public function destroy();
-    
-    public function setIdentifier($identifier);
-    
-    public function getIdentifier($identifier);
 }
