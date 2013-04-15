@@ -5,6 +5,7 @@ class Item
     protected $id;
     protected $name;
     protected $quantity;
+    protected $price;
 
     public function __construct(array $item)
     {
