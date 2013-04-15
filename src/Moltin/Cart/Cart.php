@@ -40,6 +40,8 @@ class Cart
         $item = new Item($item);
 
         $this->store->insertUpdate($id, $item);
+
+        return $id;
     }
 
     public function update()
