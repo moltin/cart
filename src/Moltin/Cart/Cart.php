@@ -78,10 +78,11 @@ class Cart
 
     protected function createItemIdentifier(array $item)
     {
-        unset($item['quantity']);
-        ksort($item);
+        if ( ! array_key_exists('options', $item)) $item['options'] = array();
 
-        return md5(serialize($item));
+        ksort($item['options']);
+
+        return md5($item['id'].serialize($item));
     }
 
     protected function checkArgs(array $item)
