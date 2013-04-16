@@ -29,7 +29,7 @@ class Cart
 
     public function contents()
     {
-
+        return $this->store->data();
     }
 
     public function insert(array $item)
