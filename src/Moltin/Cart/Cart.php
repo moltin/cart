@@ -49,9 +49,9 @@ class Cart
         
     }
 
-    public function remove()
+    public function remove($identifier)
     {
-        
+        $this->store->remove($identifier);
     }
 
     public function destroy()
