@@ -76,6 +76,7 @@ class Item
         } else {
 
             // Update the item
+            if ( ! in_array($key, array('identifier', 'store'))) $this->$key = $value;
 
         }
     }
