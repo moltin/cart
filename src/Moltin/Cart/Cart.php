@@ -68,11 +68,7 @@ class Cart
     {
         $total = 0;
 
-        foreach ($this->contents() as $item) {
-
-            $total += (float)$item->tax();
-
-        }
+        foreach ($this->contents() as $item) $total += (float)$item->tax();
 
         return $total;
     }
@@ -81,11 +77,7 @@ class Cart
     {
         $total = 0;
 
-        foreach ($this->contents() as $item) {
-
-            $total += (float)$item->total($includeTax);
-
-        }
+        foreach ($this->contents() as $item) $total += (float)$item->total($includeTax);
 
         return (float)$total;
     }
