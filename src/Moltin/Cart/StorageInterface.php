@@ -5,6 +5,8 @@ interface StorageInterface
     public function insertUpdate(Item $item);
 
     public function data();
+
+    public function has($id);
     
     public function remove($id);
 

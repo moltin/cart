@@ -59,9 +59,9 @@ class Cart
         $this->store->destroy();
     }
 
-    public function has()
+    public function has($id)
     {
-        
+        return $this->store->has($id);
     }
 
     public function tax()

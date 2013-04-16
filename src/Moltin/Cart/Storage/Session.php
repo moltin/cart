@@ -23,6 +23,15 @@ class Session implements \Moltin\Cart\StorageInterface
     {
         return static::$cart[$this->id];
     }
+
+    public function has($id)
+    {
+        foreach ($this->data as $item) {
+
+            if ($item['id'] == $id) return true;
+
+        }
+    }
     
     public function remove($id)
     {
