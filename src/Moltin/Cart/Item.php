@@ -60,7 +60,7 @@ class Item
 
     }
 
-    public function total($includeTax = false)
+    public function total($includeTax = true)
     {
         $price = $this->price;
 
