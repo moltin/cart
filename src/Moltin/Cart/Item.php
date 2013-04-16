@@ -60,6 +60,11 @@ class Item
 
     }
 
+    public function total()
+    {
+        return (float)($this->price * $this->quantity);
+    }
+
     /**
      * Update a single key for this item, or multiple
      * @param  array|string  $key The array key to update, or an array of key-value pairs to update
