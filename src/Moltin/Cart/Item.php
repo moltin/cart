@@ -26,4 +26,9 @@ class Item
     {
         return $this->$param;
     }
+
+    public function remove()
+    {
+        $this->store->remove($this->identifier);
+    }
 }
