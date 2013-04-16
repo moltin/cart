@@ -10,35 +10,33 @@ class Session implements \Moltin\Cart\StorageInterface
     public function __construct()
     {
         session_id() or session_start();
+
+        if (isset($_SESSION['cart'])) $this->cart = unserialize($_SESSION['cart']);
     }
 
     public function insertUpdate(Item $item)
     {
-        $this->cart[$item->identifier] = $item;
+        $this->cart[$this->id][$item->identifier] = $item;
     }
 
     public function data()
     {
-
+        return $this->cart[$this->id];
     }
     
     public function remove($id)
     {
-        unset($_SESSION['cart'][$this->id][$id]);
+        unset($this->cart[$this->id][$id]);
     }
 
     public function destroy()
     {
-        unset($_SESSION['cart'][$this->id]);
+        unset($this->cart[$this->id]);
     }
 
     public function setIdentifier($id)
     {
         $this->id = $id;
-
-        if (isset($_SESSION['cart'][$this->id])) {
-            $this->cart = unserialize($_SESSION['cart'][$this->id]);
-        }
     }
 
     public function getIdentifier()
@@ -48,6 +46,6 @@ class Session implements \Moltin\Cart\StorageInterface
 
     public function __destruct()
     {
-        $_SESSION['cart'][$this->id] = serialize($this->cart);
+        $_SESSION['cart'] = serialize($this->cart);
     }
 }
