@@ -66,7 +66,15 @@ class Cart
 
     public function total()
     {
-        
+        $total = 0;
+
+        foreach ($this->contents() as $item) {
+
+            $total += (float)$item->total();
+
+        }
+
+        return (float)$total;
     }
 
     public function setTax()
