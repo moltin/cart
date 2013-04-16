@@ -37,9 +37,9 @@ class Cart
         $this->checkArgs($item);
 
         $id = $this->createItemIdentifier($item);
-        $item = new Item($item);
+        $item = new Item($id, $item, $this->store);
 
-        $this->store->insertUpdate($id, $item);
+        $this->store->insertUpdate($item);
 
         return $id;
     }

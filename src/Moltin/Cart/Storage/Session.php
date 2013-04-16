@@ -1,5 +1,7 @@
 <?php namespace Moltin\Cart\Storage;
 
+use Moltin\Cart\Item;
+
 class Session implements \Moltin\Cart\StorageInterface
 {
     protected $identifier;
@@ -10,9 +12,9 @@ class Session implements \Moltin\Cart\StorageInterface
         session_id() or session_start();
     }
 
-    public function insertUpdate($id, $data)
+    public function insertUpdate(Item $item)
     {
-        $this->cart[$id] = $data;
+        $this->cart[$item->identifier] = $item;
     }
 
     public function data()

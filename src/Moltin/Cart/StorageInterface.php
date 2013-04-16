@@ -2,7 +2,7 @@
 
 interface StorageInterface
 {
-    public function insertUpdate($id, $data);
+    public function insertUpdate(Item $item);
 
     public function data();
     
