@@ -24,7 +24,7 @@ class Session implements \Moltin\Cart\StorageInterface
     
     public function remove($id)
     {
-
+        unset($_SESSION['cart'][$this->id][$id]);
     }
 
     public function destroy()
