@@ -60,9 +60,13 @@ class Item
 
     }
 
-    public function total()
+    public function total($includeTax = false)
     {
-        return (float)($this->price * $this->quantity);
+        $price = $this->price;
+
+        if ($includeTax) $price += $this->tax();
+
+        return (float)($price * $this->quantity);
     }
 
     /**
