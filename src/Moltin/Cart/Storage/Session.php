@@ -5,33 +5,33 @@ use Moltin\Cart\Item;
 class Session implements \Moltin\Cart\StorageInterface
 {
     protected $identifier;
-    protected $cart = array();
+    protected static $cart = array();
 
     public function __construct()
     {
         session_id() or session_start();
 
-        if (isset($_SESSION['cart'])) $this->cart = unserialize($_SESSION['cart']);
+        if (isset($_SESSION['cart'])) static::$cart = unserialize($_SESSION['cart']);
     }
 
     public function insertUpdate(Item $item)
     {
-        $this->cart[$this->id][$item->identifier] = $item;
+        static::$cart[$this->id][$item->identifier] = $item;
     }
 
     public function data()
     {
-        return $this->cart[$this->id];
+        return static::$cart[$this->id];
     }
     
     public function remove($id)
     {
-        unset($this->cart[$this->id][$id]);
+        unset(static::$cart[$this->id][$id]);
     }
 
     public function destroy()
     {
-        unset($this->cart[$this->id]);
+        unset(static::$cart[$this->id]);
     }
 
     public function setIdentifier($id)
@@ -46,6 +46,6 @@ class Session implements \Moltin\Cart\StorageInterface
 
     public function __destruct()
     {
-        $_SESSION['cart'] = serialize($this->cart);
+        $_SESSION['cart'] = serialize(static::$cart);
     }
 }
