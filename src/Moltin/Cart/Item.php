@@ -49,4 +49,34 @@ class Item
     {
         $this->store->remove($this->identifier);
     }
+
+    /**
+     * Return the total tax for this item
+     * 
+     * @return float
+     */
+    public function tax()
+    {
+
+    }
+
+    /**
+     * Update a single key for this item, or multiple
+     * @param  array|string  $key The array key to update, or an array of key-value pairs to update
+     * @return void
+     */
+    public function update($key, $value = null)
+    {
+        if (is_array($key)) {
+
+            foreach ($key as $updateKey => $updateValue) {
+                $this->update($updateKey, $updateValue);
+            }
+
+        } else {
+
+            // Update the item
+
+        }
+    }
 }
