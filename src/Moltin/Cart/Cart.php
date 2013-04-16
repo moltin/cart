@@ -64,6 +64,19 @@ class Cart
         
     }
 
+    public function tax()
+    {
+        $total = 0;
+
+        foreach ($this->contents() as $item) {
+
+            $total += (float)$item->tax();
+
+        }
+
+        return $total;
+    }
+
     public function total($includeTax = true)
     {
         $total = 0;
