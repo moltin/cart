@@ -25,6 +25,22 @@ class CartTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($identifier, $actualId);
     }
 
+    public function testUpdate()
+    {
+        $cart = new Cart(new Moltin\Cart\Storage\Runtime, new Moltin\Cart\Identifier\Runtime);
+
+        $actualId = $cart->insert(array(
+            'id' => 'foo',
+            'name' => 'bar',
+            'price' => 100,
+            'quantity' => 1
+        ));
+
+        $cart->update('foo', 'name', 'baz');
+
+        $this->assertEquals($cart->item('foo')->name, 'baz');
+    }
+
     public function testTotals()
     {
         $cart = new Cart(new Moltin\Cart\Storage\Runtime, new Moltin\Cart\Identifier\Runtime);
