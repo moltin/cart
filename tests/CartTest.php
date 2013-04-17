@@ -13,6 +13,9 @@ class CartTest extends \PHPUnit_Framework_TestCase
     {
         $cart = new Cart(new Moltin\Cart\Storage\Runtime, new Moltin\Cart\Identifier\Runtime);
 
+        // Destroy the cart first
+        $cart->destroy();
+
         $actualId = $cart->insert(array(
             'id' => 'foo',
             'name' => 'bar',
@@ -44,6 +47,9 @@ class CartTest extends \PHPUnit_Framework_TestCase
     public function testTotals()
     {
         $cart = new Cart(new Moltin\Cart\Storage\Runtime, new Moltin\Cart\Identifier\Runtime);
+
+        // Destroy the cart first
+        $cart->destroy();
 
         // Generate a random price and quantity
         $price = rand(20, 99999);
