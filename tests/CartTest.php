@@ -34,14 +34,19 @@ class CartTest extends \PHPUnit_Framework_TestCase
     {
         $cart = new Cart(new Moltin\Cart\Storage\ArrayStore, $this->mockIdentifier());
 
+        // Generate a random price and quantity
+        $price = rand(20, 99999);
+        $quantity = rand(1, 10);
+
         $cart->insert(array(
             'id' => 'foo',
             'name' => 'bar',
-            'price' => 150,
-            'quantity' => 2
+            'price' => $price,
+            'quantity' => $quantity
         ));
 
-        $this->assertEquals($cart->total(), 300);
+        // Test that the total is being calculated successfully
+        $this->assertEquals($cart->total(), $price*$quantity);
     }
 
     protected function mockStorage()
