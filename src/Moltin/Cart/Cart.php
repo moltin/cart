@@ -48,7 +48,7 @@ class Cart
     {
         foreach ($this->contents() as $item) {
 
-            if ($item->id == $id) {
+            if ($item->id == $id or $item->identifier == $id) {
                 $item->update($key, $value);
                 break;
             }
