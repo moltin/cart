@@ -37,6 +37,14 @@ class Cart
         $this->checkArgs($item);
 
         $id = $this->createItemIdentifier($item);
+
+        if ($this->has($id)) {
+            $item['quantity'] = $this->item($id)->quantity + $item['quantity'];
+            $this->update($id, $item);
+
+            return $id;
+        }
+
         $item = new Item($id, $item, $this->store);
 
         $this->store->insertUpdate($item);
