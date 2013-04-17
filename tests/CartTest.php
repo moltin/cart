@@ -4,19 +4,14 @@ use Moltin\Cart\Cart;
 
 class CartTest extends \PHPUnit_Framework_TestCase
 {
-    public function tearDown()
-    {
-        Mockery::close();
-    }
-
     public function testDependencyInjection()
     {
-        $cart = new Cart(new Moltin\Cart\Storage\Runtime, $this->mockIdentifier());
+        $cart = new Cart(new Moltin\Cart\Storage\Runtime, new Moltin\Cart\Identifier\Runtime);
     }
 
     public function testInsert()
     {
-        $cart = new Cart(new Moltin\Cart\Storage\Runtime, $this->mockIdentifier());
+        $cart = new Cart(new Moltin\Cart\Storage\Runtime, new Moltin\Cart\Identifier\Runtime);
 
         $actualId = $cart->insert(array(
             'id' => 'foo',
@@ -32,7 +27,7 @@ class CartTest extends \PHPUnit_Framework_TestCase
 
     public function testTotals()
     {
-        $cart = new Cart(new Moltin\Cart\Storage\Runtime, $this->mockIdentifier());
+        $cart = new Cart(new Moltin\Cart\Storage\Runtime, new Moltin\Cart\Identifier\Runtime);
 
         // Generate a random price and quantity
         $price = rand(20, 99999);
