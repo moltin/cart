@@ -56,7 +56,9 @@ class Session implements \Moltin\Cart\StorageInterface
     {
         $this->id = $id;
 
-        static::$cart[$this->id] = array();
+        if ( ! array_key_exists($this->id, static::$cart)) {
+            static::$cart[$this->id] = array();
+        }
     }
 
     public function getIdentifier()
