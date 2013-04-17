@@ -1,6 +1,6 @@
 <?php namespace Moltin\Cart\Identifier;
 
-class CookieIdentifier implements \Moltin\Cart\IdentifierInterface
+class Cookie implements \Moltin\Cart\IdentifierInterface
 {
     public function get()
     {
