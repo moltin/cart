@@ -44,9 +44,16 @@ class Cart
         return $id;
     }
 
-    public function update()
+    public function update($id, $key, $value = null)
     {
-        
+        foreach ($this->contents() as $item) {
+
+            if ($item->id == $id) {
+                $item->update($key, $value);
+                break;
+            }
+
+        }
     }
 
     public function remove($identifier)
