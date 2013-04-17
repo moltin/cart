@@ -37,7 +37,7 @@ class Session implements \Moltin\Cart\StorageInterface
     {
         foreach ($this->data as $item) {
 
-            if ($item->id == $id) return $item;
+            if ($item->id == $id or $item->identifier == $id) return $item;
 
         }
     }
