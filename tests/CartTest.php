@@ -11,12 +11,12 @@ class CartTest extends \PHPUnit_Framework_TestCase
 
     public function testDependencyInjection()
     {
-        $cart = new Cart(new Moltin\Cart\Storage\ArrayStore, $this->mockIdentifier());
+        $cart = new Cart(new Moltin\Cart\Storage\Runtime, $this->mockIdentifier());
     }
 
     public function testInsert()
     {
-        $cart = new Cart(new Moltin\Cart\Storage\ArrayStore, $this->mockIdentifier());
+        $cart = new Cart(new Moltin\Cart\Storage\Runtime, $this->mockIdentifier());
 
         $actualId = $cart->insert(array(
             'id' => 'foo',
@@ -32,7 +32,7 @@ class CartTest extends \PHPUnit_Framework_TestCase
 
     public function testTotals()
     {
-        $cart = new Cart(new Moltin\Cart\Storage\ArrayStore, $this->mockIdentifier());
+        $cart = new Cart(new Moltin\Cart\Storage\Runtime, $this->mockIdentifier());
 
         // Generate a random price and quantity
         $price = rand(20, 99999);
