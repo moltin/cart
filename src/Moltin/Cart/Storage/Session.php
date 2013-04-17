@@ -49,7 +49,7 @@ class Session implements \Moltin\Cart\StorageInterface
 
     public function destroy()
     {
-        unset(static::$cart[$this->id]);
+        static::$cart[$this->id] = array();
     }
 
     public function setIdentifier($id)
