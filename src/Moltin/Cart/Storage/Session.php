@@ -55,6 +55,8 @@ class Session implements \Moltin\Cart\StorageInterface
     public function setIdentifier($id)
     {
         $this->id = $id;
+
+        static::$cart[$this->id] = array();
     }
 
     public function getIdentifier()
