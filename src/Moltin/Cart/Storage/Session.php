@@ -26,9 +26,18 @@ class Session implements \Moltin\Cart\StorageInterface
 
     public function has($id)
     {
+        foreach (static::$cart[$this->id] as $item) {
+
+            if ($item->id == $id) return true;
+
+        }
+    }
+
+    public function item($id)
+    {
         foreach ($this->data as $item) {
 
-            if ($item['id'] == $id) return true;
+            if ($item->id == $id) return $item;
 
         }
     }

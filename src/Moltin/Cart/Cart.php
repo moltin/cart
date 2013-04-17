@@ -71,6 +71,11 @@ class Cart
         return $this->store->has($id);
     }
 
+    public function item($id)
+    {
+        return $this->store->item($id);
+    }
+
     public function tax()
     {
         $total = 0;
