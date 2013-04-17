@@ -2,7 +2,7 @@
 
 use Moltin\Cart\Item;
 
-class Session implements \Moltin\Cart\StorageInterface
+class SessionStore implements \Moltin\Cart\StorageInterface
 {
     protected $identifier;
     protected static $cart = array();
