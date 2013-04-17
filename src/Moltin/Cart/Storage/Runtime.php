@@ -2,7 +2,7 @@
 
 use Moltin\Cart\Item;
 
-class ArrayStore implements \Moltin\Cart\StorageInterface
+class Runtime implements \Moltin\Cart\StorageInterface
 {
     protected $identifier;
     protected static $cart = array();
