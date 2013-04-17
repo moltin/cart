@@ -43,20 +43,4 @@ class CartTest extends \PHPUnit_Framework_TestCase
         // Test that the total is being calculated successfully
         $this->assertEquals($cart->total(), $price*$quantity);
     }
-
-    protected function mockStorage()
-    {
-        $storage = Mockery::mock('Moltin\\Cart\\StorageInterface');
-        $storage->shouldReceive('setIdentifier')->once()->andReturn(true);
-
-        return $storage;
-    }
-
-    protected function mockIdentifier()
-    {
-        $identifier = Mockery::mock('Moltin\\Cart\\IdentifierInterface');
-        $identifier->shouldReceive('get')->once()->andReturn('foo');
-
-        return $identifier;
-    }
 }
