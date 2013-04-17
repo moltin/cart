@@ -11,15 +11,12 @@ class CartTest extends \PHPUnit_Framework_TestCase
 
     public function testDependencyInjection()
     {
-        $cart = new Cart($this->mockStorage(), $this->mockIdentifier());
+        $cart = new Cart(new Moltin\Cart\Storage\ArrayStore, $this->mockIdentifier());
     }
 
     public function testInsert()
     {
-        $storage = $this->mockStorage();
-        $storage->shouldReceive('insertUpdate')->once()->andReturn(true);
-
-        $cart = new Cart($storage, $this->mockIdentifier());
+        $cart = new Cart(new Moltin\Cart\Storage\ArrayStore, $this->mockIdentifier());
 
         $actualId = $cart->insert(array(
             'id' => 'foo',
