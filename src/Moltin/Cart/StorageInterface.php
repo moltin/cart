@@ -26,6 +26,14 @@ interface StorageInterface
     public function has($id);
 
     /**
+     * Get a single cart item by id
+     * 
+     * @param  mixed $id The item id
+     * @return Item  The item class
+     */
+    public function item($id);
+
+    /**
      * Remove an item from the cart
      * 
      * @param  mixed $id
