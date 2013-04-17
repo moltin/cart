@@ -33,6 +33,20 @@ class CartTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($identifier, $actualId);
     }
 
+    public function testTotals()
+    {
+        $cart = new Cart(new Moltin\Cart\Storage\ArrayStore, $this->mockIdentifier());
+
+        $cart->insert(array(
+            'id' => 'foo',
+            'name' => 'bar',
+            'price' => 150,
+            'quantity' => 2
+        ));
+
+        $this->assertEquals($cart->total(), 300);
+    }
+
     protected function mockStorage()
     {
         $storage = Mockery::mock('Moltin\\Cart\\StorageInterface');
