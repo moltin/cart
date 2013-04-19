@@ -16,7 +16,7 @@ class CartTest extends \PHPUnit_Framework_TestCase
 
     public function testInsert()
     {
-        $actualId = $cart->insert(array(
+        $actualId = $this->cart->insert(array(
             'id' => 'foo',
             'name' => 'bar',
             'price' => 100,
