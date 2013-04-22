@@ -91,13 +91,11 @@ class CartTest extends \PHPUnit_Framework_TestCase
 
         $identifier = md5('foo'.serialize(array()));
 
-        $contents = $this->cart->contents();
+        $contents =& $this->cart->contents();
 
         $this->assertNotEmpty($contents);
 
         foreach ($contents as $item) $item->remove();
-
-        $contents = $this->cart->contents();
 
         $this->assertEmpty($contents);
     }
@@ -113,13 +111,11 @@ class CartTest extends \PHPUnit_Framework_TestCase
 
         $identifier = md5('foo'.serialize(array()));
 
-        $contents = $this->cart->contents();
+        $contents =& $this->cart->contents();
 
         $this->assertNotEmpty($contents);
 
         foreach ($contents as $identifier => $item) $this->cart->remove($identifier);
-
-        $contents = $this->cart->contents();
 
         $this->assertEmpty($contents);
     }
