@@ -70,7 +70,7 @@ class Item
     {
         $price = $this->price;
 
-        if ($includeTax) $this->tax->add($price);
+        if ($includeTax) $price = $this->tax->add($price);
 
         return (float)($price * $this->quantity);
     }
