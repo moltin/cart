@@ -2,7 +2,7 @@
 
 use Moltin\Cart\Cart;
 use Moltin\Cart\Storage\Runtime as RuntimeStore;
-use Moltin\Cart\Identifier\Runtime as RuntimeIdentifier
+use Moltin\Cart\Identifier\Runtime as RuntimeIdentifier;
 
 class CartTest extends \PHPUnit_Framework_TestCase
 {
