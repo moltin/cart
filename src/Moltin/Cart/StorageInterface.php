@@ -15,7 +15,7 @@ interface StorageInterface
      * 
      * @return array
      */
-    public function data();
+    public function &data();
 
     /**
      * Check if the item exists in the cart

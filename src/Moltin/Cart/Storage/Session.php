@@ -19,7 +19,7 @@ class Session implements \Moltin\Cart\StorageInterface
         static::$cart[$this->id][$item->identifier] = $item;
     }
 
-    public function data()
+    public function &data()
     {
         return static::$cart[$this->id];
     }
