@@ -79,4 +79,61 @@ class CartTest extends \PHPUnit_Framework_TestCase
         // Test that the total is being calculated successfully
         $this->assertEquals($this->cart->total(), $price*$quantity);
     }
+
+    public function testItemRemoval()
+    {
+        $actualId = $this->cart->insert(array(
+            'id' => 'foo',
+            'name' => 'bar',
+            'price' => 100,
+            'quantity' => 1
+        ));
+
+        $identifier = md5('foo'.serialize(array()));
+
+        $contents = $this->cart->contents();
+
+        $this->assertNotEmpty($contents);
+
+        foreach ($contents as $item) $item->remove();
+
+        $this->assertEmpty($contents);
+    }
+
+    public function testAlternateItemRemoval()
+    {
+        $actualId = $this->cart->insert(array(
+            'id' => 'foo',
+            'name' => 'bar',
+            'price' => 100,
+            'quantity' => 1
+        ));
+
+        $identifier = md5('foo'.serialize(array()));
+
+        $contents = $this->cart->contents();
+
+        $this->assertNotEmpty($contents);
+
+        foreach ($contents as $identifier => $item) $this->cart->remove($identifier);
+
+        $this->assertEmpty($contents);
+    }
+
+    public function testTax()
+    {
+        $this->cart->insert(array(
+            'id' => 'foo',
+            'name' => 'bar',
+            'price' => 100,
+            'quantity' => 1,
+            'tax' => 20
+        ));
+
+        // Test that the tax is being calculated successfully
+        $this->assertEquals($this->cart->total(), 120);
+
+        // Test that the total method can also return the pre-tax price if false is passed
+        $this->assertEquals($this->cart->total(false), 100);
+    }
 }
