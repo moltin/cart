@@ -1,5 +1,7 @@
 <?php namespace Moltin\Cart;
 
+use Moltin\Tax\Tax;
+
 class Item
 {
     protected $identifier;
@@ -27,6 +29,10 @@ class Item
         }
 
         foreach ($item as $key => $value) $this->$key = $value;
+
+        $item['tax'] = isset($item['tax']) ? $item['tax'] : 0;
+
+        $this->tax = new Tax($item['tax']);
     }
 
     /**
@@ -57,7 +63,7 @@ class Item
      */
     public function tax()
     {
-
+        return $this->tax->rate($this->price);
     }
 
     public function total($includeTax = true)
