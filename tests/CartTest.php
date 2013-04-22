@@ -97,6 +97,8 @@ class CartTest extends \PHPUnit_Framework_TestCase
 
         foreach ($contents as $item) $item->remove();
 
+        $contents = $this->cart->contents();
+
         $this->assertEmpty($contents);
     }
 
@@ -116,6 +118,8 @@ class CartTest extends \PHPUnit_Framework_TestCase
         $this->assertNotEmpty($contents);
 
         foreach ($contents as $identifier => $item) $this->cart->remove($identifier);
+
+        $contents = $this->cart->contents();
 
         $this->assertEmpty($contents);
     }
