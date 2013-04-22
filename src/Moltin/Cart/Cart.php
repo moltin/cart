@@ -27,7 +27,7 @@ class Cart
         $this->store->setIdentifier($this->id);
     }
 
-    public function contents()
+    public function &contents()
     {
         return $this->store->data();
     }
