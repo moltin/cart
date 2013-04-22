@@ -1,12 +1,14 @@
 <?php
 
 use Moltin\Cart\Cart;
+use Moltin\Cart\Storage\Runtime as RuntimeStore;
+use Moltin\Cart\Identifier\Runtime as RuntimeIdentifier
 
 class CartTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->cart = new Cart(new Moltin\Cart\Storage\Runtime, new Moltin\Cart\Identifier\Runtime);
+        $this->cart = new Cart(new RuntimeStore, new RuntimeIdentifier);
     }
 
     public function tearDown()
