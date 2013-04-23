@@ -102,11 +102,6 @@ class Cart
         return (float)$total;
     }
 
-    public function setTax()
-    {
-        
-    }
-
     public function setCurrency()
     {
         
