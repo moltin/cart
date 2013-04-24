@@ -27,6 +27,10 @@ class Item
         if (array_key_exists('identifier', $item)) {
             throw new InvalidArgumentException("'identifier' is a disallowed key for cart items");
         }
+        
+        if (array_key_exists('store', $item)) {
+            throw new InvalidArgumentException("'store' is a disallowed key for cart items");
+        }
 
         foreach ($item as $key => $value) $this->$key = $value;
 
