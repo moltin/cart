@@ -82,6 +82,22 @@ class CartTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($this->cart->total(), $price*$quantity);
     }
 
+    public function testTotalItems()
+    {
+        $adding = rand(1, 200);
+
+        for ($i = 1; $i <= $adding; $i++) {
+            $this->cart->insert(array(
+                'id' => uniqid(),
+                'name' => 'bar',
+                'price' => 100,
+                'quantity' => 1
+            ));
+        }
+
+        $this->assertEquals($this->cart->totalItems(), $adding);
+    }
+
     public function testItemRemoval()
     {
         $actualId = $this->cart->insert(array(
