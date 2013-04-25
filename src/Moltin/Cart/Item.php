@@ -6,6 +6,7 @@ class Item
 {
     protected $identifier;
     protected $store;
+    protected $tax;
 
     protected $data = array();
 
