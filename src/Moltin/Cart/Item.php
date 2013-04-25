@@ -4,7 +4,7 @@ use Moltin\Tax\Tax;
 
 class Item
 {
-    protected $identifier;
+    public $identifier;
     protected $store;
     protected $tax;
 
