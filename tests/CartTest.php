@@ -65,6 +65,22 @@ class CartTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($this->cart->item('foo')->name, 'baz');
     }
 
+    public function testMagicUpdate()
+    {
+        $actualId = $this->cart->insert(array(
+            'id' => 'foo',
+            'name' => 'bar',
+            'price' => 100,
+            'quantity' => 1
+        ));
+
+        foreach ($this->cart->contents() as $item) {
+            $item->name = 'baz';
+        }
+
+        $this->assertEquals($this->cart->item('foo')->name, 'baz');
+    }
+
     public function testTotals()
     {
         // Generate a random price and quantity
