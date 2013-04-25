@@ -102,6 +102,11 @@ class Cart
         return (float)$total;
     }
 
+    public function totalItems()
+    {
+        return count($this->contents());
+    }
+
     public function setCurrency()
     {
         
