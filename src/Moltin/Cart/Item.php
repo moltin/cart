@@ -7,10 +7,7 @@ class Item
     protected $identifier;
     protected $store;
 
-    protected $id;
-    protected $name;
-    protected $quantity;
-    protected $price;
+    protected $data = array();
 
     /**
      * Construct the item
@@ -24,15 +21,7 @@ class Item
         $this->identifier = $identifier;
         $this->store = $store;
 
-        if (array_key_exists('identifier', $item)) {
-            throw new InvalidArgumentException("'identifier' is a disallowed key for cart items");
-        }
-        
-        if (array_key_exists('store', $item)) {
-            throw new InvalidArgumentException("'store' is a disallowed key for cart items");
-        }
-
-        foreach ($item as $key => $value) $this->$key = $value;
+        foreach ($item as $key => $value) $this->data[$key] = $value;
 
         $item['tax'] = isset($item['tax']) ? $item['tax'] : 0;
 
@@ -47,7 +36,7 @@ class Item
      */
     public function __get($param)
     {
-        return $this->$param;
+        return $this->data[$param];
     }
 
     /**
@@ -95,7 +84,7 @@ class Item
         } else {
 
             // Update the item
-            if ( ! in_array($key, array('identifier', 'store'))) $this->$key = $value;
+            $this->data[$key] = $value;
 
         }
     }
