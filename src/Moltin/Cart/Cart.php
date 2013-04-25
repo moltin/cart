@@ -104,7 +104,13 @@ class Cart
 
     public function totalItems()
     {
-        return count($this->contents());
+        $total = 0;
+
+        foreach ($this->contents() as $item) {
+            $total += $item->quantity;
+        }
+
+        return $total;
     }
 
     public function setCurrency()
