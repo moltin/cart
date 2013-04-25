@@ -41,6 +41,17 @@ class Item
     }
 
     /**
+     * Update data array using set magic method
+     * 
+     * @param string $param The key to set
+     * @param mixed $value The value to set $param to
+     */
+    public function __set($param, $value)
+    {
+        $this->data[$param] = $value;
+    }
+
+    /**
      * Removes the current item from the cart
      * 
      * @return void
