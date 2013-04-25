@@ -4,7 +4,7 @@ use Moltin\Tax\Tax;
 
 class Item
 {
-    public $identifier;
+    protected $identifier;
     protected $store;
     protected $tax;
 
@@ -37,7 +37,7 @@ class Item
      */
     public function __get($param)
     {
-        return $this->data[$param];
+        return $param == 'identifier' ? $this->identifier : $this->data[$param];
     }
 
     /**
