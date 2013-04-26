@@ -1,5 +1,4 @@
-Shopping Cart Package
-====
+# Shopping Cart Package
 
 [![Build Status](https://secure.travis-ci.org/moltin/cart.png)](http://travis-ci.org/moltin/cart)
 
@@ -7,4 +6,26 @@ Shopping Cart Package
 * [License](https://github.com/moltin/cart/master/LICENSE)
 * Version: dev
 
-The Moltin shopping cart composer package makes it easy to implement a shopping basket into your application and store the cart data using one of the numerous data stores provided. You can also inject your own data store if you would like your cart data to be stored elsewhere.
+The Moltin shopping cart composer package makes it easy to implement a shopping basket into your application and
+store the cart data using one of the numerous data stores provided. You can also inject your own data store if you
+would like your cart data to be stored elsewhere.
+
+## Usage
+Below is a basic usage guide for this package.
+
+### Instantiating the cart
+Before you begin, you will need to know which storage and identifier method you are going to use. The identifier is
+how you store which cart is for that user. So if you store your cart in the database, then you need a cookie (or some
+other way of storing an identifier) so we can link the user to a stored cart.
+
+In this example we're going to use the cookie identifier and session for storage.
+
+```php
+<?php
+
+use Moltin\Cart\Cart;
+use Moltin\Cart\Storage\Session;
+use Moltin\Cart\Identifier\Cookie;
+
+$cart = new Cart(new Session, new Cookie);
+```
