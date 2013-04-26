@@ -29,3 +29,35 @@ use Moltin\Cart\Identifier\Cookie;
 
 $cart = new Cart(new Session, new Cookie);
 ```
+
+### Inserting items into the cart
+Inserting an item into the cart is easy. The required keys are id, name, price and quantity, although you can pass
+over any custom data that you like.
+```php
+<?php
+
+$cart->insert(array(
+    'id'       => 'foo',
+    'name'     => 'bar',
+    'price'    => 100,
+    'quantity' => 1,
+    'tax'      => 20
+));
+```
+
+### Setting the tax rate for an item
+Another key you can pass to your insert method is 'tax'. This is a percentage which you would like to be added onto
+the price of the item.
+
+In the below example we will use 20% for the tax rate.
+
+```php
+<?php
+
+$cart->insert(array(
+    'id'       => 'foo',
+    'name'     => 'bar',
+    'price'    => 100,
+    'quantity' => 1
+));
+```
