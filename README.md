@@ -47,8 +47,6 @@ the price of the item.
 In the below example we will use 20% for the tax rate.
 
 ```php
-<?php
-
 $cart->insert(array(
     'id'       => 'foo',
     'name'     => 'bar',
