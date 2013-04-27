@@ -21,8 +21,6 @@ other way of storing an identifier) so we can link the user to a stored cart.
 In this example we're going to use the cookie identifier and session for storage.
 
 ```php
-<?php
-
 use Moltin\Cart\Cart;
 use Moltin\Cart\Storage\Session;
 use Moltin\Cart\Identifier\Cookie;
@@ -34,14 +32,11 @@ $cart = new Cart(new Session, new Cookie);
 Inserting an item into the cart is easy. The required keys are id, name, price and quantity, although you can pass
 over any custom data that you like.
 ```php
-<?php
-
 $cart->insert(array(
     'id'       => 'foo',
     'name'     => 'bar',
     'price'    => 100,
-    'quantity' => 1,
-    'tax'      => 20
+    'quantity' => 1
 ));
 ```
 
@@ -58,6 +53,7 @@ $cart->insert(array(
     'id'       => 'foo',
     'name'     => 'bar',
     'price'    => 100,
-    'quantity' => 1
+    'quantity' => 1,
+    'tax'      => 20
 ));
 ```
