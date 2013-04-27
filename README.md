@@ -55,3 +55,63 @@ $cart->insert(array(
     'tax'      => 20
 ));
 ```
+
+### Updating items in the cart
+You can update items in your cart by updating any property on a cart item. For example, if you were within a
+cart loop then you can update a specific item using the below example.
+```php
+foreach ($cart->contents() as $item) {
+    $item->name = 'Foo';
+    $item->quantity = 1;
+}
+```
+
+### Removing cart items
+You can remove any items in your cart by using the ```remove()`` method on any cart item.
+```php
+foreach ($cart->contents() as $item) {
+    $item->remove();
+}
+```
+
+### Destroying/emptying the cart
+You can completely empty/destroy the cart by using the ```destroy()``` method.
+```php
+$cart->destroy()
+```
+
+### Retrieving the total items in the cart
+```php
+$cart->totalItems();
+```
+
+### Retrieving the cart total
+```php
+$cart->total();
+```
+
+By default the ```total()``` method will return the total value of the cart as a ```float```, this will include
+any item taxes. If you want to retrieve the cart total without tax then you can do so by passing false to the
+```total()``` method
+```php
+$cart->total(false);
+```
+
+### Cart items
+There are several features of the cart items that may also help when integrating your cart.
+
+#### Retrieving the total value of an item
+You can retriieve the total value of a specific cart item (including quantities) using the following method.
+```php
+$item->total();
+```
+
+By default, this method will return the total value of the item plus tax. So if you had a product which costs 100,
+with a quantity of 2 and a tax rate of 20% then the total returned by this method would be 220.
+
+You can also get the total minus tax by passing false to the ```total()``` method.
+```php
+$item->total(false);
+```
+
+This would return 200.
