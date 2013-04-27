@@ -67,7 +67,7 @@ foreach ($cart->contents() as $item) {
 ```
 
 ### Removing cart items
-You can remove any items in your cart by using the ```remove()`` method on any cart item.
+You can remove any items in your cart by using the ```remove()``` method on any cart item.
 ```php
 foreach ($cart->contents() as $item) {
     $item->remove();
