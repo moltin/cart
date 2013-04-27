@@ -107,7 +107,7 @@ $item->total();
 ```
 
 By default, this method will return the total value of the item plus tax. So if you had a product which costs 100,
-with a quantity of 2 and a tax rate of 20% then the total returned by this method would be 220.
+with a quantity of 2 and a tax rate of 20% then the total returned by this method would be 240.
 
 You can also get the total minus tax by passing false to the ```total()``` method.
 ```php
