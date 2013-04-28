@@ -101,4 +101,9 @@ class Item
 
         }
     }
+    
+    public function hasOptions()
+    {
+        return ! empty($this->options);
+    }
 }
