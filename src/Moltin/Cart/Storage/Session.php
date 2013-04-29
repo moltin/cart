@@ -33,7 +33,7 @@ class Session implements \Moltin\Cart\StorageInterface
         }
     }
 
-    public function item($id)
+    public function item($identifier)
     {
         foreach (static::$cart[$this->id] as $item) {
 
