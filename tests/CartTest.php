@@ -60,9 +60,9 @@ class CartTest extends \PHPUnit_Framework_TestCase
             'quantity' => 1
         ));
 
-        $this->cart->update('foo', 'name', 'baz');
+        $this->cart->update($actualId, 'name', 'baz');
 
-        $this->assertEquals($this->cart->item('foo')->name, 'baz');
+        $this->assertEquals($this->cart->item($actualId)->name, 'baz');
     }
 
     public function testMagicUpdate()
