@@ -52,11 +52,11 @@ class Cart
         return $id;
     }
 
-    public function update($id, $key, $value = null)
+    public function update($identifier, $key, $value = null)
     {
         foreach ($this->contents() as $item) {
 
-            if ($item->id == $id or $item->identifier == $id) {
+            if ($item->identifier == $identifier) {
                 $item->update($key, $value);
                 break;
             }
