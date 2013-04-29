@@ -17,20 +17,20 @@ class Runtime implements \Moltin\Cart\StorageInterface
         return static::$cart[$this->id];
     }
 
-    public function has($id)
+    public function has($identifier)
     {
         foreach (static::$cart[$this->id] as $item) {
 
-            if ($item->id == $id or $item->identifier == $id) return true;
+            if ($item->identifier == $identifier) return true;
 
         }
     }
 
-    public function item($id)
+    public function item($identifier)
     {
         foreach (static::$cart[$this->id] as $item) {
 
-            if ($item->id == $id or $item->identifier == $id) return $item;
+            if ($item->identifier == $identifier) return $item;
 
         }
     }
