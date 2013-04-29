@@ -78,7 +78,7 @@ class CartTest extends \PHPUnit_Framework_TestCase
             $item->name = 'baz';
         }
 
-        $this->assertEquals($this->cart->item('foo')->name, 'baz');
+        $this->assertEquals($this->cart->item($actualId)->name, 'baz');
     }
 
     public function testTotals()
