@@ -80,6 +80,22 @@ class CartTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($this->cart->item($actualId)->name, 'baz');
     }
+    
+    public function testOptions()
+    {
+        $actualId = $this->cart->insert(array(
+            'id' => 'foo',
+            'name' => 'bar',
+            'price' => 100,
+            'quantity' => 1,
+            'options' => array(
+                'size' => 'L'
+            )
+        ));
+        
+        $this->assertTrue($this->cart->item($actualId)->hasOptions());
+        $this->assertNotEmpty($this->cart->item($actualId)->option);
+    }
 
     public function testTotals()
     {
