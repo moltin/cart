@@ -115,3 +115,12 @@ $item->total(false);
 ```
 
 This would return 200.
+
+#### Check if an item has options
+You can check if a cart item has options by using the ```hasOptions()``` method.
+
+```php
+if ($item->hasOptions()) {
+    // We have options
+}
+```
