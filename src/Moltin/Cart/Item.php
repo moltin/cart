@@ -104,6 +104,6 @@ class Item
     
     public function hasOptions()
     {
-        return ! empty($this->options);
+        return array_key_exists('options', $this->data) and ! empty($this->data['options']);
     }
 }
