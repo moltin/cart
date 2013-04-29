@@ -93,8 +93,15 @@ class CartTest extends \PHPUnit_Framework_TestCase
             )
         ));
         
-        $this->assertTrue($this->cart->item($actualId)->hasOptions());
-        $this->assertNotEmpty($this->cart->item($actualId)->options);
+        $item = $this->cart->item($actualId);
+        
+        $this->assertTrue($item->hasOptions());
+        $this->assertNotEmpty($item->options);
+        
+        $item->options = array();
+        
+        $this->assertFalse($item->hasOptions());
+        $this->assertEmpty($item->options);
     }
 
     public function testTotals()
