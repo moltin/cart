@@ -23,7 +23,7 @@ interface StorageInterface
      * @param  mixed  $id
      * @return boolean
      */
-    public function has($id);
+    public function has($identifier);
 
     /**
      * Get a single cart item by id
@@ -31,7 +31,7 @@ interface StorageInterface
      * @param  mixed $id The item id
      * @return Item  The item class
      */
-    public function item($id);
+    public function item($identifier);
 
     /**
      * Remove an item from the cart
