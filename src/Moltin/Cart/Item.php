@@ -71,6 +71,12 @@ class Item
         return $this->tax->rate($this->price);
     }
 
+    /**
+     * Return the total of the item, with or without tax
+     * 
+     * @param  boolean $includeTax Whether or not to include tax
+     * @return float              The total, as a float
+     */
     public function total($includeTax = true)
     {
         $price = $this->price;
@@ -102,6 +108,11 @@ class Item
         }
     }
     
+    /**
+     * Check if this item has options
+     * 
+     * @return boolean Yes or no?
+     */
     public function hasOptions()
     {
         return array_key_exists('options', $this->data) and ! empty($this->data['options']);
