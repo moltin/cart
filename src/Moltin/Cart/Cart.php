@@ -36,20 +36,20 @@ class Cart
     {
         $this->checkArgs($item);
 
-        $id = $this->createItemIdentifier($item);
+        $itemIdentifier = $this->createItemIdentifier($item);
 
-        if ($this->has($id)) {
-            $item['quantity'] = $this->item($id)->quantity + $item['quantity'];
-            $this->update($id, $item);
+        if ($this->has($itemIdentifier)) {
+            $item['quantity'] = $this->item($itemIdentifier)->quantity + $item['quantity'];
+            $this->update($itemIdentifier, $item);
 
-            return $id;
+            return $itemIdentifier;
         }
 
-        $item = new Item($id, $item, $this->store);
+        $item = new Item($itemIdentifier, $item, $this->store);
 
         $this->store->insertUpdate($item);
 
-        return $id;
+        return $itemIdentifier;
     }
 
     public function update($identifier, $key, $value = null)
@@ -74,14 +74,14 @@ class Cart
         $this->store->destroy();
     }
 
-    public function has($id)
+    public function has($itemIdentifier)
     {
-        return $this->store->has($id);
+        return $this->store->has($itemIdentifier);
     }
 
-    public function item($id)
+    public function item($itemIdentifier)
     {
-        return $this->store->item($id);
+        return $this->store->item($itemIdentifier);
     }
 
     public function tax()
