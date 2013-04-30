@@ -101,7 +101,7 @@ $cart->total(false);
 There are several features of the cart items that may also help when integrating your cart.
 
 #### Retrieving the total value of an item
-You can retriieve the total value of a specific cart item (including quantities) using the following method.
+You can retrieve the total value of a specific cart item (including quantities) using the following method.
 ```php
 $item->total();
 ```
