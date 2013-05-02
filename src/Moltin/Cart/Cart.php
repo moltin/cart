@@ -100,6 +100,11 @@ class Cart
         $this->store->remove($identifier);
     }
 
+    /**
+     * Destroy/empty the cart
+     * 
+     * @return void
+     */
     public function destroy()
     {
         $this->store->destroy();
