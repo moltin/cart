@@ -205,6 +205,12 @@ class Cart
         return md5($item['id'].serialize($item['options']));
     }
 
+    /**
+     * Check if a cart item has the required parameters
+     * 
+     * @param  array  $item An array of item data
+     * @return void
+     */
     protected function checkArgs(array $item)
     {
         foreach ($this->requiredParams as $param) {
