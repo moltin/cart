@@ -121,6 +121,12 @@ class Cart
         return $this->store->has($itemIdentifier);
     }
 
+    /**
+     * Return a specific item object by identifier
+     * 
+     * @param  string $itemIdentifier The unique item identifier
+     * @return Item                   Item object
+     */
     public function item($itemIdentifier)
     {
         return $this->store->item($itemIdentifier);
