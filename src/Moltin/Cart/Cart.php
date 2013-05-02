@@ -146,6 +146,12 @@ class Cart
         return $total;
     }
 
+    /**
+     * The total value of the cart
+     * 
+     * @param  boolean $includeTax Include tax on the total?
+     * @return float               The total cart value
+     */
     public function total($includeTax = true)
     {
         $total = 0;
