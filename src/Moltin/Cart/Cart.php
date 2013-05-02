@@ -33,6 +33,11 @@ class Cart
         $this->store->setIdentifier($this->id);
     }
 
+    /**
+     * Retrieve the cart contents
+     * 
+     * @return array An array of Item objects
+     */
     public function &contents()
     {
         return $this->store->data();
