@@ -110,6 +110,12 @@ class Cart
         $this->store->destroy();
     }
 
+    /**
+     * Check if the cart has a specific item
+     * 
+     * @param  string  $itemIdentifier The unique item identifier
+     * @return boolean                 Yes or no?
+     */
     public function has($itemIdentifier)
     {
         return $this->store->has($itemIdentifier);
