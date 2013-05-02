@@ -161,6 +161,12 @@ class Cart
         return (float)$total;
     }
 
+    /**
+     * The total number of items in the cart
+     * 
+     * @param  boolean $unique Just return unique items?
+     * @return int             Total number of items
+     */
     public function totalItems($unique = false)
     {
         $total = 0;
