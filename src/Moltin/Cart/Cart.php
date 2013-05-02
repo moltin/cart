@@ -43,6 +43,12 @@ class Cart
         return $this->store->data();
     }
 
+    /**
+     * Insert an item into the cart
+     * 
+     * @param  array  $item An array of item data
+     * @return string       A unique item identifier
+     */
     public function insert(array $item)
     {
         $this->checkArgs($item);
