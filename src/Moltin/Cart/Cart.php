@@ -178,6 +178,11 @@ class Cart
         return $total;
     }
 
+    /**
+     * Set the currency object
+     * 
+     * @param \Moltin\Currency\Currency $currency The currency object
+     */
     public function setCurrency($currency)
     {
         $this->currency = $currency;
