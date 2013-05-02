@@ -4,6 +4,11 @@ class Runtime implements \Moltin\Cart\IdentifierInterface
 {
     protected static $identifier;
 
+    /**
+     * Get the current or new unique identifier
+     * 
+     * @return string The identifier
+     */
     public function get()
     {
         if (isset(static::$identifier)) return static::$identifier;
@@ -11,6 +16,11 @@ class Runtime implements \Moltin\Cart\IdentifierInterface
         return $this->regenerate();
     }
 
+    /**
+     * Regenerate the identifier
+     * 
+     * @return string The identifier
+     */
     public function regenerate()
     {
         $identifier = md5(uniqid(null, true));
@@ -20,6 +30,11 @@ class Runtime implements \Moltin\Cart\IdentifierInterface
         return $identifier;
     }
 
+    /**
+     * Forget the identifier
+     * 
+     * @return void
+     */
     public function forget()
     {
         unset(static::$identifier);
