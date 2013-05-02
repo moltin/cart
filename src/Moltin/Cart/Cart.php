@@ -113,9 +113,11 @@ class Cart
         return $total;
     }
 
-    public function setCurrency()
+    public function setCurrency($currency)
     {
-        
+        $this->currency = $currency;
+
+        return $this;
     }
 
     protected function createItemIdentifier(array $item)
