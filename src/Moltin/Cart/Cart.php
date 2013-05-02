@@ -89,6 +89,12 @@ class Cart
         }
     }
 
+    /**
+     * Remove an item from the cart
+     * 
+     * @param  string $identifier Unique item identifier
+     * @return void
+     */
     public function remove($identifier)
     {
         $this->store->remove($identifier);
