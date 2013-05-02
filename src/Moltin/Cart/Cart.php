@@ -15,6 +15,12 @@ class Cart
         'price'
     );
 
+    /**
+     * Cart constructor
+     * 
+     * @param StorageInterface    $store      The interface for storing the cart data
+     * @param IdentifierInterface $identifier The interface for storing the identifier
+     */
     public function __construct(StorageInterface $store, IdentifierInterface $identifier)
     {
         $this->store = $store;
