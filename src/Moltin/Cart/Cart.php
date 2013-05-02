@@ -102,12 +102,12 @@ class Cart
         return (float)$total;
     }
 
-    public function totalItems()
+    public function totalItems($unique = false)
     {
         $total = 0;
 
         foreach ($this->contents() as $item) {
-            $total += $item->quantity;
+            $total += $unique ? 1 : $item->quantity;
         }
 
         return $total;
