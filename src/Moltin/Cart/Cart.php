@@ -132,6 +132,11 @@ class Cart
         return $this->store->item($itemIdentifier);
     }
 
+    /**
+     * The total tax value for the cart
+     * 
+     * @return float The total tax value
+     */
     public function tax()
     {
         $total = 0;
