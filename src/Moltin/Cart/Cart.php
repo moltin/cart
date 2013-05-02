@@ -69,6 +69,14 @@ class Cart
         return $itemIdentifier;
     }
 
+    /**
+     * Update an item
+     * 
+     * @param  string $itemIdentifier The unique item identifier
+     * @param  string|int|array $key  The key to update, or an array of key-value pairs
+     * @param  mixed $value           The value to set $key to
+     * @return void
+     */
     public function update($itemIdentifier, $key, $value = null)
     {
         foreach ($this->contents() as $item) {
