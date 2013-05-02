@@ -190,6 +190,12 @@ class Cart
         return $this;
     }
 
+    /**
+     * Create a unique item identifier
+     * 
+     * @param  array  $item An array of item data
+     * @return string       An md5 hash of item
+     */
     protected function createItemIdentifier(array $item)
     {
         if ( ! array_key_exists('options', $item)) $item['options'] = array();
