@@ -85,6 +85,12 @@ $cart->destroy()
 $cart->totalItems();
 ```
 
+By default this method will return all items in the cart as well as their quantities. You can pass ```true```
+as the first argument to get all unique items.
+```php
+$cart->totalItems(true);
+```
+
 ### Retrieving the cart total
 ```php
 $cart->total();
