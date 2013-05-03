@@ -43,9 +43,17 @@ class Runtime implements \Moltin\Cart\StorageInterface
      * 
      * @return array
      */
-    public function &data()
+    public function &data($asArray = false)
     {
-        return static::$cart[$this->id];
+        $cart = static::$cart[$this->id];
+
+        if ( ! $asArray) return $cart;
+
+        foreach ($cart as &$item) {
+            $item = $item->toArray();
+        }
+
+        return $cart;
     }
 
     /**

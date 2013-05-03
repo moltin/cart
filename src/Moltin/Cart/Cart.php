@@ -58,9 +58,9 @@ class Cart
      * 
      * @return array An array of Item objects
      */
-    public function &contents()
+    public function &contents($asArray = false)
     {
-        return $this->store->data();
+        return $this->store->data($asArray);
     }
 
     /**
