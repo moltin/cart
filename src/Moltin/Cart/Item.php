@@ -137,4 +137,14 @@ class Item
     {
         return array_key_exists('options', $this->data) and ! empty($this->data['options']);
     }
+
+    /**
+     * Convert the item into an array
+     * 
+     * @return array The item data
+     */
+    public function toArray()
+    {
+        return $this->data;
+    }
 }
