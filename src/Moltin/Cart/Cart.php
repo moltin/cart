@@ -21,6 +21,7 @@
 namespace Moltin\Cart;
 
 use InvalidArgumentException;
+use Moltin\Currency\Currency;
 
 class Cart
 {
@@ -203,7 +204,7 @@ class Cart
      * 
      * @param \Moltin\Currency\Currency $currency The currency object
      */
-    public function setCurrency($currency)
+    public function setCurrency(Currency $currency)
     {
         $this->currency = $currency;
 
