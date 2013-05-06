@@ -26,8 +26,11 @@ use Moltin\Currency\Currency;
 class Cart
 {
     protected $id;
-    protected $store;
+    
     protected $identifier;
+    protected $store;
+    
+    protected $currency;
 
     protected $requiredParams = array(
         'id',
@@ -209,6 +212,16 @@ class Cart
         $this->currency = $currency;
 
         return $this;
+    }
+
+    /**
+     * Get the currency object
+     * 
+     * @return Currency The currency object for this cart
+     */
+    public function currency()
+    {
+        return $this->currency;
     }
 
     /**
