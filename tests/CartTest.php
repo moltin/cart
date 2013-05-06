@@ -201,6 +201,32 @@ class CartTest extends \PHPUnit_Framework_TestCase
         $this->assertEmpty($contents);
     }
 
+    public function testItemToArray()
+    {
+        $actualId = $this->cart->insert(array(
+            'id' => 'foo',
+            'name' => 'bar',
+            'price' => 100,
+            'quantity' => 1
+        ));
+
+        $this->assertTrue(is_array($this->cart->item($actualId)->toArray()));
+    }
+
+    public function testCartToArray()
+    {
+        $actualId = $this->cart->insert(array(
+            'id' => 'foo',
+            'name' => 'bar',
+            'price' => 100,
+            'quantity' => 1
+        ));
+
+        foreach ($this->cart->contents(true) as $item) {
+            $this->assertTrue(is_array($item));
+        }
+    }
+
     public function testTax()
     {
         $this->cart->insert(array(
