@@ -35,7 +35,7 @@ interface StorageInterface
      * 
      * @return array
      */
-    public function &data();
+    public function &data($asArray = false);
 
     /**
      * Check if the item exists in the cart
