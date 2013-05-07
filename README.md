@@ -103,10 +103,10 @@ any item taxes. If you want to retrieve the cart total without tax then you can 
 $cart->total(false);
 ```
 
-### Cart items
+## Cart items
 There are several features of the cart items that may also help when integrating your cart.
 
-#### Retrieving the total value of an item
+### Retrieving the total value of an item
 You can retrieve the total value of a specific cart item (including quantities) using the following method.
 ```php
 $item->total();
@@ -122,7 +122,7 @@ $item->total(false);
 
 This would return 200.
 
-#### Check if an item has options
+### Check if an item has options
 You can check if a cart item has options by using the ```hasOptions()``` method.
 
 ```php
