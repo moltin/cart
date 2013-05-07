@@ -80,6 +80,17 @@ You can completely empty/destroy the cart by using the ```destroy()``` method.
 $cart->destroy()
 ```
 
+### Retrieve the cart contents
+You can loop the cart contents by using the following method
+```php
+$cart->contents();
+```
+
+You can also return the cart items as an array by passing true as the first argument
+```php
+$cart->contents(true);
+```
+
 ### Retrieving the total items in the cart
 ```php
 $cart->totalItems();
@@ -101,6 +112,16 @@ any item taxes. If you want to retrieve the cart total without tax then you can 
 ```total()``` method
 ```php
 $cart->total(false);
+```
+
+### Check if the cart has an item
+```php
+$cart->has($itemIdentifier);
+```
+
+### Retreive an item object by identifier
+```php
+$cart->item($itemIdentifier);
 ```
 
 ## Cart items
@@ -129,4 +150,14 @@ You can check if a cart item has options by using the ```hasOptions()``` method.
 if ($item->hasOptions()) {
     // We have options
 }
+```
+
+### Remove an item from the cart
+```php
+$item->remove();
+```
+
+### Output the item data as an array
+```php
+$item->toArray();
 ```
