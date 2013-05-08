@@ -54,6 +54,14 @@ interface StorageInterface
     public function item($identifier);
 
     /**
+     * Returns the first occurance of an item with a given id
+     * 
+     * @param  string $id The item id
+     * @return Item       Item object
+     */
+    public function find($id);
+
+    /**
      * Remove an item from the cart
      * 
      * @param  mixed $id
