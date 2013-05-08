@@ -85,6 +85,21 @@ class Runtime implements \Moltin\Cart\StorageInterface
 
         }
     }
+
+    /**
+     * Returns the first occurance of an item with a given id
+     * 
+     * @param  string $id The item id
+     * @return Item       Item object
+     */
+    public function find($id)
+    {
+        foreach (static::$cart[$this->id] as $item) {
+
+            if ($item->id == $id) return $item;
+
+        }
+    }
     
     /**
      * Remove an item from the cart

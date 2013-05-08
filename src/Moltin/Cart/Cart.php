@@ -157,6 +157,17 @@ class Cart
     }
 
     /**
+     * Returns the first occurance of an item with a given id
+     * 
+     * @param  string $id The item id
+     * @return Item       Item object
+     */
+    public function find($id)
+    {
+        return $this->store->find($id);
+    }
+
+    /**
      * The total tax value for the cart
      * 
      * @return float The total tax value
