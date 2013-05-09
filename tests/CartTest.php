@@ -122,6 +122,18 @@ class CartTest extends \PHPUnit_Framework_TestCase
         $this->assertEmpty($item->options);
     }
 
+    public function testFind()
+    {
+        $this->cart->insert(array(
+            'id' => 'foo',
+            'name' => 'bar',
+            'price' => 100,
+            'quantity' => 1
+        ));
+
+        $this->assertInstanceOf('\Moltin\Cart\Item', $this->cart->find('foo'));
+    }
+
     public function testTotals()
     {
         // Generate a random price and quantity
