@@ -49,13 +49,13 @@ class Runtime implements \Moltin\Cart\StorageInterface
 
         if ( ! $asArray) return $cart;
 
-        $data = array();
+        $data = $cart;
 
-        foreach ($cart as $item) {
-            $data[] = $item->toArray();
+        foreach ($data as &$item) {
+            $item = $item->toArray();
         }
 
-        return $cart;
+        return $data;
     }
 
     /**
