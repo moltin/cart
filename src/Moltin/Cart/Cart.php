@@ -234,6 +234,17 @@ class Cart
     {
         return $this->currency;
     }
+    
+    /**
+     * Set the cart identifier, useful if restoring a saved cart
+     * 
+     * @param  mixed The identifier
+     * @return void
+     */
+    public function setIdentifier($identifier)
+    {
+        $this->store->setIdentifier($identifier);
+    }
 
     /**
      * Create a unique item identifier
