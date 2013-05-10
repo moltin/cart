@@ -45,7 +45,7 @@ class Runtime implements \Moltin\Cart\StorageInterface
      */
     public function &data($asArray = false)
     {
-        $cart =& static::$cart[$this->id];
+        $cart = static::$cart[$this->id];
 
         if ( ! $asArray) return $cart;
 
