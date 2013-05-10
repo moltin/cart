@@ -57,7 +57,7 @@ class Cart
         $this->store->setIdentifier($this->id);
 
         // Restore the cart from a saved version
-        $this->store->restore();
+        if (method_exists($this->store, 'restore')) $this->store->restore();
     }
 
     /**
