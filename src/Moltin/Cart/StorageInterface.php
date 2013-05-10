@@ -23,6 +23,13 @@ namespace Moltin\Cart;
 interface StorageInterface
 {
     /**
+     * Restore the cart from a saved copy
+     * 
+     * @return void
+     */
+    public function restore();
+
+    /**
      * Add or update an item in the cart
      * 
      * @param  Item   $item The item to insert or update

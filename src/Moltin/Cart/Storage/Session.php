@@ -27,7 +27,7 @@ class Session extends Runtime implements \Moltin\Cart\StorageInterface
     /**
      * The Session store constructor
      */
-    public function __construct()
+    public function restore()
     {
         session_id() or session_start();
 

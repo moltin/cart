@@ -55,6 +55,9 @@ class Cart
 
         // Let our storage class know which cart we're talking about
         $this->store->setIdentifier($this->id);
+
+        // Restore the cart from a saved version
+        $this->store->restore();
     }
 
     /**
