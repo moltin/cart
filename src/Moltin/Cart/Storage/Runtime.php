@@ -71,6 +71,8 @@ class Runtime implements \Moltin\Cart\StorageInterface
             if ($item->identifier == $identifier) return true;
 
         }
+
+        return false;
     }
 
     /**
@@ -86,6 +88,8 @@ class Runtime implements \Moltin\Cart\StorageInterface
             if ($item->identifier == $identifier) return $item;
 
         }
+
+        return false;
     }
 
     /**
@@ -101,6 +105,8 @@ class Runtime implements \Moltin\Cart\StorageInterface
             if ($item->id == $id) return $item;
 
         }
+
+        return false;
     }
     
     /**
