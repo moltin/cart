@@ -53,11 +53,11 @@ class Cart
         // Generate/retrieve identifier
         $this->id = $this->identifier->get();
 
-        // Let our storage class know which cart we're talking about
-        $this->store->setIdentifier($this->id);
-
         // Restore the cart from a saved version
         if (method_exists($this->store, 'restore')) $this->store->restore();
+
+        // Let our storage class know which cart we're talking about
+        $this->store->setIdentifier($this->id);
     }
 
     /**
