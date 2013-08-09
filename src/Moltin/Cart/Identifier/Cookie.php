@@ -43,7 +43,7 @@ class Cookie implements \Moltin\Cart\IdentifierInterface
     {
         $identifier = md5(uniqid(null, true));
 
-        setcookie('cart_identifier', $identifier);
+        setcookie('cart_identifier', $identifier, 0, "/");
 
         return $identifier;
     }
