@@ -1,6 +1,7 @@
 {
     "name": "moltin/cart",
     "description": "Shopping cart package",
+    "license": "proprietary",
     "authors": [
         {
             "name": "Moltin Ltd",
