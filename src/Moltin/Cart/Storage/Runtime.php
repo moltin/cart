@@ -24,7 +24,7 @@ use Moltin\Cart\Item;
 
 class Runtime implements \Moltin\Cart\StorageInterface
 {
-    protected $identifier;
+    protected $id;
     protected static $cart = array();
 
     /**
@@ -151,6 +151,6 @@ class Runtime implements \Moltin\Cart\StorageInterface
      */
     public function getIdentifier()
     {
-        return $this->identifier;
+        return $this->id;
     }
 }
