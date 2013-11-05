@@ -57,7 +57,9 @@ class Item
      */
     public function __get($param)
     {
-        return $param == 'identifier' ? $this->identifier : $this->data[$param];
+        if ($param == 'identifier') return $this->identifier;
+
+        return array_key_exists($param, $this->data) ? $this->data[$param] : null;
     }
 
     /**
