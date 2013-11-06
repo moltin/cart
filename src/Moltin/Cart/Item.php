@@ -21,6 +21,7 @@
 namespace Moltin\Cart;
 
 use Moltin\Tax\Tax;
+use InvalidArgumentException;
 
 class Item
 {
@@ -123,6 +124,10 @@ class Item
             }
 
         } else {
+
+            if ($key == 'quantity' and $value < 1) {
+                throw new InvalidArgumentException('Quantity can not be less than 1');
+            }
 
             // Update the item
             $this->data[$key] = $value;
