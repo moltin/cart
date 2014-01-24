@@ -87,6 +87,7 @@ class Item
     /**
      * Return the total tax for this item
      * 
+     * @param boolean $single Tax for single item or all?
      * @return float
      */
     public function tax($single = false)
