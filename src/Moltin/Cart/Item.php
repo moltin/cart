@@ -131,6 +131,10 @@ class Item
             if ($key == 'quantity' and $value < 1) {
                 throw new InvalidArgumentException('Quantity can not be less than 1');
             }
+            
+            if ($key == 'tax' and is_numeric($value)) {
+                $this->tax = new Tax($value);
+            }
 
             // Update the item
             $this->data[$key] = $value;
