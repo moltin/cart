@@ -129,7 +129,7 @@ class Item
         } else {
 
             if ($key == 'quantity' and $value < 1) {
-                $this->remove();
+                return $this->remove();
             }
             
             if ($key == 'tax' and is_numeric($value)) {
