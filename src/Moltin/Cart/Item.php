@@ -126,7 +126,7 @@ class Item
         } else {
 
             if ($key == 'quantity' and $value < 1) {
-                throw new InvalidArgumentException('Quantity can not be less than 1');
+                $this->remove();
             }
 
             // Update the item
