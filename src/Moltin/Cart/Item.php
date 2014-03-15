@@ -87,11 +87,14 @@ class Item
     /**
      * Return the total tax for this item
      * 
+     * @param boolean $single Tax for single item or all?
      * @return float
      */
-    public function tax()
+    public function tax($single = false)
     {
-        return $this->tax->rate($this->price);
+        $quantity = $single ? 1 : $this->quantity;
+
+        return $this->tax->rate($this->price*$quantity);
     }
 
     /**
@@ -127,6 +130,10 @@ class Item
 
             if ($key == 'quantity' and $value < 1) {
                 $this->remove();
+            }
+            
+            if ($key == 'tax' and is_numeric($value)) {
+                $this->tax = new Tax($value);
             }
 
             // Update the item
