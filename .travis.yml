@@ -9,3 +9,6 @@ before_script:
   - composer install --dev
 
 script: vendor/bin/phpunit
+
+notifications:
+  slack: moltin:EtxGN2ACBoByHVyGqjzM6JpT
