@@ -91,7 +91,7 @@ class Cart
 
         if ($item['quantity'] < 1) throw new InvalidArgumentException('Quantity can not be less than 1');
 
-        $item = new Item($itemIdentifier, $item, $this->store);
+        $item = $this->createItem($itemIdentifier, $item);
 
         $this->store->insertUpdate($item);
 
@@ -281,5 +281,17 @@ class Cart
             }
 
         }
+    }
+
+    /**
+     * Create an item object
+     *
+     * @param string $identifier The item identifier
+     * @param array  $data       The item data
+     * @return Item
+     */
+    protected function createItem($identifier, array $data)
+    {
+        return new Item($identifier, $data, $this->store);
     }
 }
