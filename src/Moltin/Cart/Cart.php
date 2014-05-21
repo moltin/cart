@@ -249,6 +249,16 @@ class Cart
     }
 
     /**
+     * The total number of unique items in the cart
+     * 
+     * @return int             Total number of items
+     */
+    public function totalUniqueItems()
+    {
+        return $this->totalItems(true);
+    }
+
+    /**
      * Set the currency object
      * 
      * @param \Moltin\Currency\Currency $currency The currency object
