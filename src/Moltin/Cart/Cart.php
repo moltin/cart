@@ -212,6 +212,26 @@ class Cart
     }
 
     /**
+     * The total value of the cart with tax
+     * 
+     * @return float The total cart value
+     */
+    public function totalWithTax()
+    {
+        return $this->total(true);
+    }
+
+    /**
+     * The total value of the cart without tax
+     * 
+     * @return float The total cart value
+     */
+    public function totalWithoutTax()
+    {
+        return $this->total(false);
+    }
+
+    /**
      * The total number of items in the cart
      * 
      * @param  boolean $unique Just return unique items?
