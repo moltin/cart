@@ -18,12 +18,13 @@
  *
  */
 
-namespace Moltin\Cart;
+namespace Moltin\Cart\Item;
 
 use Moltin\Tax\Tax;
 use InvalidArgumentException;
+use Moltin\Cart\StorageInterface;
 
-class Item
+class Line
 {
     protected $identifier;
     protected $store;
