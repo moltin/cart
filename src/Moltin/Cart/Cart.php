@@ -71,6 +71,16 @@ class Cart
     }
 
     /**
+     * Retrieve the cart contents as an array
+     * 
+     * @return array An array of items
+     */
+    public function &contentsArray()
+    {
+        return $this->store->data(true);
+    }
+
+    /**
      * Insert an item into the cart
      * 
      * @param  array  $item An array of item data
