@@ -171,6 +171,7 @@ class CartTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($this->cart->totalItems(), $actualTotal);
         $this->assertEquals($this->cart->totalItems(true), $adding);
+        $this->assertEquals($this->cart->totalUniqueItems(), $adding);
     }
 
     public function testItemRemoval()
@@ -237,6 +238,10 @@ class CartTest extends \PHPUnit_Framework_TestCase
         foreach ($this->cart->contents(true) as $item) {
             $this->assertTrue(is_array($item));
         }
+
+        foreach ($this->cart->contentsArray() as $item) {
+            $this->assertTrue(is_array($item));
+        }
     }
 
     public function testTax()
@@ -251,8 +256,10 @@ class CartTest extends \PHPUnit_Framework_TestCase
 
         // Test that the tax is being calculated successfully
         $this->assertEquals($this->cart->total(), 120);
+        $this->assertEquals($this->cart->totalWithTax(), 120);
 
         // Test that the total method can also return the pre-tax price if false is passed
         $this->assertEquals($this->cart->total(false), 100);
+        $this->assertEquals($this->cart->totalWithoutTax(), 100);
     }
 }
