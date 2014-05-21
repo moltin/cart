@@ -20,6 +20,8 @@
 
 namespace Moltin\Cart;
 
+use Moltin\Cart\Item\Line as LineItem;
+
 interface StorageInterface
 {
     /**
@@ -28,7 +30,7 @@ interface StorageInterface
      * @param  Item   $item The item to insert or update
      * @return void
      */
-    public function insertUpdate(Item $item);
+    public function insertUpdate(LineItem $item);
 
     /**
      * Retrieve the cart data

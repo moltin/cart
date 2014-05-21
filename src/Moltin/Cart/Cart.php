@@ -22,6 +22,7 @@ namespace Moltin\Cart;
 
 use InvalidArgumentException;
 use Moltin\Currency\Currency;
+use Moltin\Cart\Item\Line as LineItem;
 
 class Cart
 {
@@ -332,6 +333,6 @@ class Cart
      */
     protected function createItem($identifier, array $data)
     {
-        return new Item($identifier, $data, $this->store);
+        return new LineItem($identifier, $data, $this->store);
     }
 }

@@ -21,6 +21,7 @@
 namespace Moltin\Cart\Storage;
 
 use Moltin\Cart\Item;
+use Moltin\Cart\Item\Line as LineItem;
 
 class Runtime implements \Moltin\Cart\StorageInterface
 {
@@ -33,7 +34,7 @@ class Runtime implements \Moltin\Cart\StorageInterface
      * @param  Item   $item The item to insert or update
      * @return void
      */
-    public function insertUpdate(Item $item)
+    public function insertUpdate(LineItem $item)
     {
         static::$cart[$this->id][$item->identifier] = $item;
     }

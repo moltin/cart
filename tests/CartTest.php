@@ -131,7 +131,7 @@ class CartTest extends \PHPUnit_Framework_TestCase
             'quantity' => 1
         ));
 
-        $this->assertInstanceOf('\Moltin\Cart\Item', $this->cart->find('foo'));
+        $this->assertInstanceOf('\Moltin\Cart\Item\Line', $this->cart->find('foo'));
     }
 
     public function testTotals()
