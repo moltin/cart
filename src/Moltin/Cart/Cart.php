@@ -23,6 +23,8 @@ namespace Moltin\Cart;
 use InvalidArgumentException;
 use Moltin\Currency\Currency;
 use Moltin\Cart\Item\Line as LineItem;
+use Moltin\Cart\Exception\ValidationException;
+use Moltin\Cart\Exception\ArgumentMissingException;
 
 class Cart
 {
@@ -315,12 +317,18 @@ class Cart
      */
     protected function checkArgs(array $item)
     {
+        $errors = array();
+
         foreach ($this->requiredParams as $param) {
 
             if ( ! array_key_exists($param, $item)) {
-                throw new InvalidArgumentException("The '{$param}' field is required");
+                $errors[] = new ArgumentMissingException("The '{$param}' field is required", $param);
             }
 
+        }
+
+        if ( ! empty($errors)) {
+            throw new ValidationException('One or more errors occurred when validating arguments', $errors);
         }
     }
 
