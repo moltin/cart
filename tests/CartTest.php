@@ -34,6 +34,22 @@ class CartTest extends \PHPUnit_Framework_TestCase
         $this->cart->destroy();
     }
 
+    public function testErrors()
+    {
+        try {
+            $this->cart->insert(array(
+                'id' => 'foo',
+                'name' => 'bar'
+            ));
+        } catch (\Exception $e) {
+            $this->assertInstanceOf('\Moltin\Cart\Exception\ValidationException', $e);
+            foreach ($e->getErrors() as $error) {
+                $this->assertInstanceOf('\Moltin\Cart\Exception\ArgumentMissingException', $error);
+                $this->assertTrue(in_array($error->getArgument(), array('quantity', 'price')));
+            }
+        }
+    }
+
     public function testInsert()
     {
         $actualId = $this->cart->insert(array(
