@@ -44,7 +44,10 @@ class Line
         $this->identifier = $identifier;
         $this->store = $store;
 
-        foreach ($item as $key => $value) $this->data[$key] = $value;
+        foreach ($item as $key => $value) {
+            if ($key == 'quantity') $value = (int)$value;
+            $this->data[$key] = $value;
+        }
 
         $item['tax'] = isset($item['tax']) ? $item['tax'] : 0;
 
