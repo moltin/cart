@@ -25,6 +25,7 @@ use Moltin\Currency\Currency;
 use Moltin\Cart\Item\Line as LineItem;
 use Moltin\Cart\Exception\ValidationException;
 use Moltin\Cart\Exception\ArgumentMissingException;
+use Moltin\Cart\Exception\InvalidQuantityException;
 
 class Cart
 {
@@ -102,7 +103,7 @@ class Cart
             return $itemIdentifier;
         }
 
-        if ($item['quantity'] < 1) throw new InvalidArgumentException('Quantity can not be less than 1');
+        if ($item['quantity'] < 1) throw new InvalidQuantityException('Quantity can not be less than 1');
 
         $item = $this->createItem($itemIdentifier, $item);
 
