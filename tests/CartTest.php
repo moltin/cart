@@ -48,6 +48,17 @@ class CartTest extends \PHPUnit_Framework_TestCase
                 $this->assertTrue(in_array($error->getArgument(), array('quantity', 'price')));
             }
         }
+
+        try {
+            $this->cart->insert(array(
+                'id' => 'foo',
+                'name' => 'bar',
+                'price' => 100,
+                'quantity' => 0
+            ));
+        } catch (\Exception $e) {
+            $this->assertInstanceOf('\Moltin\Cart\Exception\InvalidQuantityException', $e);
+        }
     }
 
     public function testInsert()
