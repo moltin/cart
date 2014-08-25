@@ -45,7 +45,7 @@ class Line
         $this->store = $store;
 
         foreach ($item as $key => $value) {
-            if ($key == 'quantity') $value = (int)$value;
+            if ($key == 'quantity') $value = (float)$value;
             $this->data[$key] = $value;
         }
 
