@@ -10,6 +10,19 @@ The Moltin shopping cart composer package makes it easy to implement a shopping 
 store the cart data using one of the numerous data stores provided. You can also inject your own data store if you
 would like your cart data to be stored elsewhere.
 
+## Installation
+Download and install composer from `http://www.getcomposer.org/download`
+
+Add the following to your project `composer.json` file
+```
+{
+    "require": {
+        "moltin/cart": "dev-master"
+    }
+}
+```
+When you're done just run `php composer.phar install` and the package is ready to be used.
+
 ## Usage
 Below is a basic usage guide for this package.
 
