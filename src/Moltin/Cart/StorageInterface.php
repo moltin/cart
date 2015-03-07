@@ -64,6 +64,14 @@ interface StorageInterface
     public function find($id);
 
     /**
+     * Returns a list of active cart id's
+     * 
+     * @param  string $id The item id
+     * @return array      The array of cart id's
+     */
+    public function findAll()
+
+    /**
      * Remove an item from the cart
      * 
      * @param  mixed $id
@@ -77,6 +85,13 @@ interface StorageInterface
      * @return void
      */
     public function destroy();
+
+    /**
+     * Destroy all existing carts
+     * 
+     * @return void
+     */
+    public function destroyAll();
     
     /**
      * Set the cart identifier

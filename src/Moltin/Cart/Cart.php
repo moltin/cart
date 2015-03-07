@@ -154,6 +154,16 @@ class Cart
     }
 
     /**
+     * Destroy all existing carts
+     * 
+     * @return void
+     */
+    public function destroyAll()
+    {
+        $this->store->destroyAll();
+    }
+
+    /**
      * Check if the cart has a specific item
      * 
      * @param  string  $itemIdentifier The unique item identifier
@@ -184,6 +194,17 @@ class Cart
     public function find($id)
     {
         return $this->store->find($id);
+    }
+
+    /**
+     * Returns a list of active cart id's
+     * 
+     * @param  string $id The item id
+     * @return array      The array of cart id's
+     */
+    public function findAll()
+    {
+        return $this->store->findAll();
     }
 
     /**
