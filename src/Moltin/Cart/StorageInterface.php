@@ -69,7 +69,7 @@ interface StorageInterface
      * @param  string $id The item id
      * @return array      The array of cart id's
      */
-    public function findAll()
+    public function findAll();
 
     /**
      * Remove an item from the cart
