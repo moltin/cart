@@ -62,6 +62,19 @@ class Item
 
         return array_key_exists($param, $this->data) ? $this->data[$param] : null;
     }
+    
+    /**
+     * Return the existence of protected methods
+     * 
+     * @param  any $param
+     * @return mixed
+     */
+    public function __isset($param)
+    {
+        if ($param == 'identifier') return true;
+
+        return array_key_exists($param, $this->data) ? true : false;
+    }
 
     /**
      * Update data array using set magic method
