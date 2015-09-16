@@ -126,6 +126,7 @@ class Cart
             }
 
         }
+        $this->store->save();
     }
 
     /**

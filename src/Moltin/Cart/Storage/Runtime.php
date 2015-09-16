@@ -153,4 +153,14 @@ class Runtime implements \Moltin\Cart\StorageInterface
     {
         return $this->id;
     }
+
+    /**
+     * Save current state of the cart (in case of persistent storage)
+     * 
+     * @return void
+     */
+    public function save()
+    {
+        
+    }
 }
