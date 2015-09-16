@@ -153,5 +153,4 @@ class Runtime implements \Moltin\Cart\StorageInterface
     {
         return $this->id;
     }
-
 }
