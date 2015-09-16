@@ -138,11 +138,10 @@ class Item
 
             // Update the item
             $this->data[$key] = $value;
-            
-            // Save the updated item in the storage
-            $this->store->insertUpdate($this);
 
         }
+        // Save the updated item in the storage
+        $this->store->insertUpdate($this);
 
     }
     
