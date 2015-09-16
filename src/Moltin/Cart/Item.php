@@ -136,6 +136,9 @@ class Item
                 $this->tax = new Tax($value);
             }
 
+            // Update the item
+            $this->data[$key] = $value;
+            
             // Save the updated item in the storage
             $this->store->insertUpdate($this);
 
