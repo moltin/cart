@@ -26,11 +26,13 @@ use Moltin\Currency\Currency;
 class Cart
 {
     protected $id;
-    
+
     protected $identifier;
     protected $store;
-    
+
     protected $currency;
+
+    protected $new = true;
 
     protected $requiredParams = array(
         'id',
@@ -41,7 +43,7 @@ class Cart
 
     /**
      * Cart constructor
-     * 
+     *
      * @param StorageInterface    $store      The interface for storing the cart data
      * @param IdentifierInterface $identifier The interface for storing the identifier
      */
@@ -54,15 +56,25 @@ class Cart
         $this->id = $this->identifier->get();
 
         // Restore the cart from a saved version
-        if (method_exists($this->store, 'restore')) $this->store->restore($this->id);
+        if (method_exists($this->store, 'restore')) {
+            $this->new = !$this->store->restore($this->id);
+        }
 
         // Let our storage class know which cart we're talking about
         $this->store->setIdentifier($this->id);
     }
 
+    public function isNew($value = null)
+    {
+        if (!is_null($value)) {
+            $this->new = (bool)$value;
+        }
+        return (bool)$this->new;
+    }
+
     /**
      * Retrieve the cart contents
-     * 
+     *
      * @return array An array of Item objects
      */
     public function &contents($asArray = false)
@@ -72,7 +84,7 @@ class Cart
 
     /**
      * Retrieve the cart contents as an array
-     * 
+     *
      * @return array An array of items
      */
     public function &contentsArray()
@@ -82,7 +94,7 @@ class Cart
 
     /**
      * Insert an item into the cart
-     * 
+     *
      * @param  array  $item An array of item data
      * @return string       A unique item identifier
      */
@@ -110,7 +122,7 @@ class Cart
 
     /**
      * Update an item
-     * 
+     *
      * @param  string $itemIdentifier The unique item identifier
      * @param  string|int|array $key  The key to update, or an array of key-value pairs
      * @param  mixed $value           The value to set $key to
@@ -130,7 +142,7 @@ class Cart
 
     /**
      * Remove an item from the cart
-     * 
+     *
      * @param  string $identifier Unique item identifier
      * @return void
      */
@@ -141,7 +153,7 @@ class Cart
 
     /**
      * Destroy/empty the cart
-     * 
+     *
      * @return void
      */
     public function destroy()
@@ -151,7 +163,7 @@ class Cart
 
     /**
      * Check if the cart has a specific item
-     * 
+     *
      * @param  string  $itemIdentifier The unique item identifier
      * @return boolean                 Yes or no?
      */
@@ -162,7 +174,7 @@ class Cart
 
     /**
      * Return a specific item object by identifier
-     * 
+     *
      * @param  string $itemIdentifier The unique item identifier
      * @return Item                   Item object
      */
@@ -173,7 +185,7 @@ class Cart
 
     /**
      * Returns the first occurance of an item with a given id
-     * 
+     *
      * @param  string $id The item id
      * @return Item       Item object
      */
@@ -184,7 +196,7 @@ class Cart
 
     /**
      * The total tax value for the cart
-     * 
+     *
      * @return float The total tax value
      */
     public function tax()
@@ -198,7 +210,7 @@ class Cart
 
     /**
      * The total value of the cart
-     * 
+     *
      * @param  boolean $includeTax Include tax on the total?
      * @return float               The total cart value
      */
@@ -213,7 +225,7 @@ class Cart
 
     /**
      * The total value of the cart with tax
-     * 
+     *
      * @return float The total cart value
      */
     public function totalWithTax()
@@ -223,7 +235,7 @@ class Cart
 
     /**
      * The total value of the cart without tax
-     * 
+     *
      * @return float The total cart value
      */
     public function totalWithoutTax()
@@ -233,7 +245,7 @@ class Cart
 
     /**
      * The total number of items in the cart
-     * 
+     *
      * @param  boolean $unique Just return unique items?
      * @return int             Total number of items
      */
@@ -250,7 +262,7 @@ class Cart
 
     /**
      * The total number of unique items in the cart
-     * 
+     *
      * @return int             Total number of items
      */
     public function totalUniqueItems()
@@ -260,7 +272,7 @@ class Cart
 
     /**
      * Set the currency object
-     * 
+     *
      * @param \Moltin\Currency\Currency $currency The currency object
      */
     public function setCurrency(Currency $currency)
@@ -272,17 +284,17 @@ class Cart
 
     /**
      * Get the currency object
-     * 
+     *
      * @return Currency The currency object for this cart
      */
     public function currency()
     {
         return $this->currency;
     }
-    
+
     /**
      * Set the cart identifier, useful if restoring a saved cart
-     * 
+     *
      * @param  mixed The identifier
      * @return void
      */
@@ -293,7 +305,7 @@ class Cart
 
     /**
      * Create a unique item identifier
-     * 
+     *
      * @param  array  $item An array of item data
      * @return string       An md5 hash of item
      */
@@ -308,7 +320,7 @@ class Cart
 
     /**
      * Check if a cart item has the required parameters
-     * 
+     *
      * @param  array  $item An array of item data
      * @return void
      */

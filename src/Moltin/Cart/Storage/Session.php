@@ -31,7 +31,12 @@ class Session extends Runtime implements \Moltin\Cart\StorageInterface
     {
         session_id() or session_start();
 
-        if (isset($_SESSION['cart'])) static::$cart = unserialize($_SESSION['cart']);
+        if (isset($_SESSION['cart'])) {
+            static::$cart = unserialize($_SESSION['cart']);
+            return true;
+        }
+
+        return false;
     }
 
     /**
