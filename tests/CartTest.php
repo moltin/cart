@@ -34,6 +34,18 @@ class CartTest extends \PHPUnit_Framework_TestCase
         $this->cart->destroy();
     }
 
+    public function testIsNew()
+    {
+        $this->assertTrue($this->cart->isNew());
+
+        $this->assertTrue($this->cart->isNew(true));
+        $this->assertTrue($this->cart->isNew(1));
+        $this->assertTrue($this->cart->isNew('hi'));
+
+        $this->assertFalse($this->cart->isNew(0));
+        $this->assertFalse($this->cart->isNew(false));
+    }
+
     public function testInsert()
     {
         $actualId = $this->cart->insert(array(
@@ -98,7 +110,7 @@ class CartTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($this->cart->item($actualId)->name, 'baz');
     }
-    
+
     public function testOptions()
     {
         $actualId = $this->cart->insert(array(
@@ -110,14 +122,14 @@ class CartTest extends \PHPUnit_Framework_TestCase
                 'size' => 'L'
             )
         ));
-        
+
         $item = $this->cart->item($actualId);
-        
+
         $this->assertTrue($item->hasOptions());
         $this->assertNotEmpty($item->options);
-        
+
         $item->options = array();
-        
+
         $this->assertFalse($item->hasOptions());
         $this->assertEmpty($item->options);
     }
@@ -158,14 +170,14 @@ class CartTest extends \PHPUnit_Framework_TestCase
 
         for ($i = 1; $i <= $adding; $i++) {
             $quantity = rand(1, 20);
-            
+
             $this->cart->insert(array(
                 'id' => uniqid(),
                 'name' => 'bar',
                 'price' => 100,
                 'quantity' => $quantity
             ));
-            
+
             $actualTotal += $quantity;
         }
 
